@@ -8,7 +8,7 @@ layout: layout
 
     header .bg-header {
         height: 560px;
-        background-color: #62A4FF;
+        background-color: hsla(174, 33%, 35%, 0.79);
     }
 
     /*头像*/
@@ -146,7 +146,7 @@ layout: layout
                     <h1>
                         <%= config.author %>
                     </h1>
-                    <h2>个人作品集</h2>
+                    <h2>作品集</h2>
                 </div>
             </div>
         </div>
@@ -163,7 +163,7 @@ layout: layout
                             <%= site.data.project[obj].title %>
                         </h3>
                         <span class="title-date text-muted">
-                            <%= site.data.project[obj].data %>
+                            <%= site.data.project[obj].date %>
                         </span>
                     </div>
                     <div class="works-item-img">
@@ -180,10 +180,10 @@ layout: layout
                         　
                         <p class="subtitle"> <%= site.data.project[obj].subTitle %> </p>
 
-                        <p class="text-muted"> <%- site.data.project[obj].direction %> </p>
+                        <p class="text-muted"> <%- site.data.project[obj].description %> </p>
                     </div>
                     <div class="footer clearfix">
-                        <a class=" btn btn-default" href="<%= site.data.project[obj].link %>" target="_blank"> Open
+                        <a class="btn btn-default" href="<%= site.data.project[obj].link %>" target="_blank"> Open
                             it</a>
                     </div>
                 </div>
