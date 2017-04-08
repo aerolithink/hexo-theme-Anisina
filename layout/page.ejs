@@ -5,6 +5,10 @@ layout: layout
 <% if(is_home()){ %>
 <style>
 
+    header.intro-header {
+        background-image: url('<%= config["header-img"]%>')
+    }
+
     .custom-haojen-container .post-preview:nth-of-type(1),
     .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
         text-align: center;
@@ -131,7 +135,7 @@ layout: layout
                 <div class="site-heading text-center">
                     <div class="about-me">
                         <!--移动端头部显示-->
-                        <img src="<%= config['sidebar-avatar'] %>"/>
+                        <img src="<%= config['sidebar-avatar'] %>" alt="avatar"/>
                         <h4><%= config.author %></h4>
                         <p><%= config['sidebar-about-description'] %></p>
                     </div>
@@ -161,7 +165,7 @@ layout: layout
                 <div class="short-about">
                     <!--侧边栏头像-->
                     <% if(config['sidebar-avatar']) { %>
-                    <img src="<%= config['sidebar-avatar'] %>"/>
+                    <img src="<%= config['sidebar-avatar'] %>" alt="avatar"/>
                     <% } %>
                     <h5><%= config.author %></h5>
                     <% if(config['sidebar-about-description']) { %>
@@ -254,7 +258,7 @@ layout: layout
                 <div class="tags">
                     <% site.tags.map(function(tag){ %>
                     <% if(tag.length > config['featured-condition-size']) { %>
-                    <a href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"
+                    <a href="<%= config.root %>Tags/#<%= tag.name %>" title="<%= tag.name %>"
                        rel="<%= tag.length %>"><%= tag.name %></a>
                     <% } %>
                     <% }) %>

@@ -6,13 +6,16 @@ layout: layout
 <% if (page['wechat-share']) { %>
 
 <img class="wechat-title-img"
-     src="<%- config['cdn-url'] %> <%= page['wechat-share'] || page['header-img'] %> <%- config['cdn-url'] ? config['clip-content'] : '' %>">
+     src="<%- config['cdn-url'] %> <%= page['wechat-share'] || page['header-img'] %> <%- config['cdn-url'] ? config['clip-content'] : '' %>"
+     alt="wechat-title-image">
 <% } else{ %>
 <% if (page["cdn"] === 'header-off'){ %>
-<img class="wechat-title-img" src="<%= page["header-img"] || config["post-default-img"] %>">
+<img class="wechat-title-img" src="<%= page["header-img"] || config["post-default-img"] %>"
+     alt="wechat-title-image">
 <% } else { %>
 <img class="wechat-title-img"
-     src="<%- page['header-img'] ? config['cdn-url'] + page["header-img"] : config["post-default-img"] %>">
+     src="<%- page['header-img'] ? config['cdn-url'] + page["header-img"] : config["post-default-img"] %>"
+     alt="wechat-title-image">
 <% } %>
 <% } %>
 <style>
@@ -34,7 +37,7 @@ layout: layout
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1><%= page.title %></h1>
+                    <h1><%= page.header_title %></h1>
                     <% if(page.subtitle) { %>
                     <h2 class="subheading"><%= page.subtitle %></h2>
                     <% } %>
@@ -44,12 +47,6 @@ layout: layout
                           日期 <%= page.date.format(config.date_format) %>
                          </span>
                     </span>
-                    <div class="tags text-center">
-                        <% page.tags.forEach(function(tag){ %>
-                        <a class="tag" href="<%= config.root %>Tags/#<%= tag.name %>"
-                           title="<%= tag.name %>"><%= tag.name %></a>
-                        <% }) %>
-                    </div>
                 </div>
             </div>
         </div>
@@ -147,22 +144,6 @@ layout: layout
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
-
-                <!-- Featured Tags -->
-                <% if(config['featured-tags']) { %>
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="<%= config.root %>Tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
-                        <% page.tags.forEach(function(tag){ %>
-                        <a class="tag" href="<%= config.root %>Tags/#<%= tag.name %>"
-                           title="<%= tag.name %>"><%= tag.name %></a>
-                        <% }) %>
-                    </div>
-                </section>
-                <% } %>
 
                 <!-- Friends Blog -->
                 <% if(config.friends) { %>
