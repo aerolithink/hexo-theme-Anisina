@@ -5,15 +5,15 @@ layout: layout
 <!--only post-->
 <% if (page['wechat-share']) { %>
 
-<img class="wechat-title-img"
-     src="<%- config['cdn-url'] %> <%= page['wechat-share'] || page['header-img'] %> <%- config['cdn-url'] ? config['clip-content'] : '' %>">
-<% } else{ %>
-<% if (page["cdn"] === 'header-off'){ %>
-<img class="wechat-title-img" src="<%= page["header-img"] || config["post-default-img"] %>">
-<% } else { %>
-<img class="wechat-title-img"
-     src="<%- page['header-img'] ? config['cdn-url'] + page["header-img"] : config["post-default-img"] %>">
-<% } %>
+  <img class="wechat-title-img"
+       src="<%- config['cdn-url'] %> <%= page['wechat-share'] || page['header-img'] %> <%- config['cdn-url'] ? config['clip-content'] : '' %>">
+  <% } else{ %>
+  <% if (page["cdn"] === 'header-off'){ %>
+    <img class="wechat-title-img" src="<%= page["header-img"] || config["post-default-img"] %>">
+  <% } else { %>
+    <img class="wechat-title-img"
+         src="<%- page['header-img'] ? config['cdn-url'] + page["header-img"] : config["post-default-img"] %>">
+  <% } %>
 <% } %>
 <style>
     <% if (page["cdn"] === 'header-off'){%>
@@ -66,7 +66,9 @@ layout: layout
     <div class="container">
         <div class="row">
             <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+            <%- partial('_partial/sidebar') %>
+
+            <div class="col-lg-7 col-lg-offset-0 col-md-7 col-sm-9 post-container">
                 <%- page.content %>
                 <hr>
                 <% if(config['duoshuo_share'] && config['duoshuo_username']) { %>
@@ -133,51 +135,12 @@ layout: layout
 
             </div>
 
-            <div class="hidden-xs col-sm-3 toc-col">
+            <div class="hidden-xs col-md-2 col-sm-3 toc-col">
                 <div class="toc-wrap">
                     <%- toc(page.content, {list_number: false}) %>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                <% if(config['featured-tags']) { %>
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="<%= config.root %>Tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
-                        <% page.tags.forEach(function(tag){ %>
-                        <a class="tag" href="<%= config.root %>Tags/#<%= tag.name %>"
-                           title="<%= tag.name %>"><%= tag.name %></a>
-                        <% }) %>
-                    </div>
-                </section>
-                <% } %>
-
-                <!-- Friends Blog -->
-                <% if(config.friends) { %>
-                <div style="margin-top: 20px;">
-                    <h5 class="text-center">FRIENDS</h5>
-                    <ul class="list-inline text-center">
-                        <% config.friends.forEach(function(friend){ %>
-                        <li><a href="<%= friend.href %>"><%= friend.title %></a></li>
-                        <% }); %>
-                    </ul>
-                </div>
-                <% } %>
-            </div>
-        </div>
-
     </div>
 </article>
 
