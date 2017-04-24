@@ -4,19 +4,18 @@ layout: layout
 
 <!--only post-->
 <% if (page['wechat-share']) { %>
-
-<img class="wechat-title-img"
-     src="<%- config['cdn-url'] %> <%= page['wechat-share'] || page['header-img'] %> <%- config['cdn-url'] ? config['clip-content'] : '' %>"
-     alt="wechat-title-image">
-<% } else{ %>
-<% if (page["cdn"] === 'header-off'){ %>
-<img class="wechat-title-img" src="<%= page["header-img"] || config["post-default-img"] %>"
-     alt="wechat-title-image">
-<% } else { %>
-<img class="wechat-title-img"
-     src="<%- page['header-img'] ? config['cdn-url'] + page["header-img"] : config["post-default-img"] %>"
-     alt="wechat-title-image">
-<% } %>
+  <img class="wechat-title-img"
+       src="<%- config['cdn-url'] %> <%= page['wechat-share'] || page['header-img'] %> <%- config['cdn-url'] ? config['clip-content'] : '' %>"
+       alt="wechat-title-image">
+  <% } else{ %>
+  <% if (page["cdn"] === 'header-off'){ %>
+  <img class="wechat-title-img" src="<%= page["header-img"] || config["post-default-img"] %>"
+       alt="wechat-title-image">
+  <% } else { %>
+  <img class="wechat-title-img"
+       src="<%- page['header-img'] ? config['cdn-url'] + page["header-img"] : config["post-default-img"] %>"
+       alt="wechat-title-image">
+  <% } %>
 <% } %>
 <style>
     <% if (page["cdn"] === 'header-off'){%>
@@ -41,12 +40,6 @@ layout: layout
                     <% if(page.subtitle) { %>
                     <h2 class="subheading"><%= page.subtitle %></h2>
                     <% } %>
-                    <span class="meta">
-                         作者 <%- page.author || config.author %>
-                        <span>
-                          日期 <%= page.date.format(config.date_format) %>
-                         </span>
-                    </span>
                 </div>
             </div>
         </div>
@@ -62,8 +55,10 @@ layout: layout
 <article>
     <div class="container">
         <div class="row">
+            <%- partial('_partial/sidebar') %>
+
             <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+            <div class="col-md-8 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12 post-container">
                 <%- page.content %>
                 <hr>
                 <% if(config['duoshuo_share'] && config['duoshuo_username']) { %>
@@ -129,36 +124,7 @@ layout: layout
                 <% } %>
 
             </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    <%- toc(page.content, {list_number: false}) %>
-                </div>
-            </div>
         </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Friends Blog -->
-                <% if(config.friends) { %>
-                <div style="margin-top: 20px;">
-                    <h5 class="text-center">FRIENDS</h5>
-                    <ul class="list-inline text-center">
-                        <% config.friends.forEach(function(friend){ %>
-                        <li><a href="<%= friend.href %>"><%= friend.title %></a></li>
-                        <% }); %>
-                    </ul>
-                </div>
-                <% } %>
-            </div>
-        </div>
-
     </div>
 </article>
 
