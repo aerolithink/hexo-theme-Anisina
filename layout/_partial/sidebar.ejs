@@ -94,25 +94,39 @@
 
     <!-- Featured Tags  标签 -->
     <% if(config['featured-tags']) { %>
-    <section>
-        <div class="tags">
-            <% site.tags.map(function(tag){ %>
-            <% if(tag.length > config['featured-condition-size']) { %>
-            <a href="<%= config.root %>Tags/#<%= tag.name %>" title="<%= tag.name %>"
-               rel="<%= tag.length %>"><%= tag.name %></a>
-            <% } %>
-            <% }) %>
-        </div>
-    </section>
+      <section>
+          <div class="tags">
+              <% site.tags.map(function(tag){ %>
+              <% if(tag.length > config['featured-condition-size']) { %>
+              <a href="<%= config.root %>Tags/#<%= tag.name %>" title="<%= tag.name %>"
+                 rel="<%= tag.length %>"><%= tag.name %></a>
+              <% } %>
+              <% }) %>
+          </div>
+      </section>
     <% } %>
 
     <% if(config.friends) { %>
-    <hr>
-    <h5 style="text-align: center;">友情鏈接</h5>
-    <ul class="list-inline" style="text-align: center;">
-        <% config.friends.forEach(function(friend){ %>
-        <li><a href="<%= friend.href %>" target="_blank"><%= friend.title %></a></li>
+      <hr>
+      <h5 style="text-align: center;">友情鏈接</h5>
+      <ul class="list-inline" style="text-align: center;">
+          <% config.friends.forEach(function(friend){ %>
+          <li><a href="<%= friend.href %>" target="_blank"><%= friend.title %></a></li>
+          <% }); %>
+      </ul>
+    <% } %>
+
+    <!-- Latest Blog Post-->
+    <% if (config['show-latest-post']) { %>
+      <h5 style="text-align: center;">最新文章</h5>
+      <ul class="list-inline" style="text-align: center;">
+        <% site.posts.sort('date', -1).slice(0, config['show-latest-post-size']).map((post) => { %>
+          <li>
+            <a href="<%- config.root %><%- post.path %>">
+              <%- post.title || "未定義文章標題" %>
+            </a>
+          </li>
         <% }); %>
-    </ul>
+      </ul>
     <% } %>
 </div>
