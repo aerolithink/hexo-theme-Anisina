@@ -105,6 +105,7 @@
           </div>
       </section>
     <% } %>
+    <hr />
 
     <% if(config.friends) { %>
       <hr>
@@ -115,6 +116,7 @@
           <% }); %>
       </ul>
     <% } %>
+    <hr />
 
     <!-- Latest Blog Post-->
     <% if (config['show-latest-post']) { %>
@@ -129,4 +131,28 @@
         <% }); %>
       </ul>
     <% } %>
+    <hr />
+
+    <h5 style="text-align: center;">共<%= site.posts.length %>篇文章</h5>
+    <hr />
+
+    <!-- All Blog Posts -->
+    <% if (config['show-all-post']) { %>
+      <h5 style="text-align: center;">所有文章</h5>
+      <ul style="text-align: center; list-style-type: none; padding: 0;">
+        <% site.posts.reduce((acc, curr) => {
+            acc[curr.date.month()]++;
+            return acc;
+          }, new Array(12).fill(0)).forEach((month, index) => {
+            if (month != 0) { %>
+              <li>
+                <a href="<%- config.root %>archives/">
+                  <%- index + 1 %>月(<%- month%>)
+                </a>
+              </li>
+            <% } %>
+          <% }) %>
+      </ul>
+    <% } %>
+
 </div>

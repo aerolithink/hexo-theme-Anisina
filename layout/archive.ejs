@@ -1,0 +1,20 @@
+---
+layout: layout
+---
+<div class="container">
+  <div class="row" style="margin-top: 60px;">
+    <%- partial('_partial/sidebar') %>
+    <div class="col-xs-12 col-sm-9">
+      <h2>全部文章 (共<%- site.posts.length %>篇文章)</h2>
+      <ol style="list-style-type: none;">
+        <% site.posts.sort('date', -1).forEach(post => { %>
+          <li>
+            <a href="<%- config.root %><%- post.path %>">
+              <%- post.date.month() + 1 %>月 <%- post.title %>
+            </a>
+          </li>
+        <% }); %>
+      </ol>
+    </div>
+  </div>
+</div>
