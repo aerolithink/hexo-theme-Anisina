@@ -143,11 +143,11 @@
         <% site.posts.reduce((acc, curr) => {
             acc[curr.date.month()]++;
             return acc;
-          }, new Array(12).fill(0)).forEach((month, index) => {
+          }, new Array(12).fill(0)).reverse().forEach((month, index) => {
             if (month != 0) { %>
               <li>
-                <a href="<%- config.root %>archives/">
-                  <%- index + 1 %>月(<%- month%>)
+                <a href="<%- config.root %>archive/#2017-<%- 12 - index %>">
+                  <%- 12 - index %>月(<%- month%>)
                 </a>
               </li>
             <% } %>

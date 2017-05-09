@@ -38,12 +38,17 @@ layout: layout
                     <% if(page.subtitle) { %>
                     <h2 class="subheading"><%= page.subtitle %></h2>
                     <% } %>
-                    <span class="meta">
-                         作者 <%- page.author || config.author %>
-                        <span>
-                          日期 <%= page.date.format(config.date_format) %>
-                         </span>
+                    <span>
+                      作者 <%- page.author || config.author %>
                     </span>
+                    <span>
+                      日期 <%= page.date.format(config.date_format) %>
+                    </span>
+
+                    <% if (config.word_count) { %>
+                      <span class="post-count">共<%= wordcount(page.content) %>字</span>
+                    <% } %>
+
                     <div class="tags text-center">
                         <% page.tags.forEach(function(tag){ %>
                         <a class="tag" href="<%= config.root %>Tags/#<%= tag.name %>"
