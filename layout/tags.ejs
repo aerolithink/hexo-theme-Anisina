@@ -27,37 +27,40 @@ layout: layout
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 标签云 -->
+            <!-- Tag Clouds -->
             <div id='tag_cloud' class="tags">
-                <% site.tags.map(function(tag){ %>
-                <a href="#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a>
-                <% }) %>
+              <% site.tags.map(function(tag){
+                if (tag.length > 0) { %>
+                  <a href="#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a>
+                <% }}); %>
             </div>
 
-            <!-- 标签列表 -->
-            <% site.tags.map(function(tag){ %>
-            <div class="one-tag-list" id="<%= tag.name %>">
-                <span class="fa fa-tags listing-seperator">
+            <!-- Tag Lists -->
+            <% site.tags.map(function(tag){
+              if (tag.length > 0) { %>
+                <div class="one-tag-list" id="<%= tag.name %>">
+                  <span class="fa fa-tags listing-seperator">
                     <span><%= tag.name %></span>
-                </span>
-                <% tag.posts.map(function(post){ %>
-                <div class="post-preview">
-                    <a href="<%- config.root %><%- post.path %>">
-                        <h2 class="post-title">
-                            <%- post.title || "Untitled" %>
-                        </h2>
-                        <% if (post.subtitle && post.subtitle.length) { %>
-                        <h3 class="post-subtitle">
-                            <%- post.subtitle %>
-                        </h3>
-                        <% } %>
-                    </a>
-                </div>
-                <hr>
-                <% }) %>
-            </div>
-            <% }) %>
+                  </span>
 
+                  <% tag.posts.map(function(post){ %>
+                    <div class="post-preview">
+                      <a href="<%- config.root %><%- post.path %>">
+                        <h2 class="post-title">
+                          <%- post.title || "Untitled" %>
+                        </h2>
+
+                        <% if (post.subtitle && post.subtitle.length) { %>
+                          <h3 class="post-subtitle">
+                            <%- post.subtitle %>
+                          </h3>
+                        <% } %>
+                      </a>
+                    </div>
+                  <hr>
+                  <% }); %>
+                </div>
+              <% }}); %>
         </div>
     </div>
 </div>
