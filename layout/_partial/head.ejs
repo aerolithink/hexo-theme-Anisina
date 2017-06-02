@@ -23,6 +23,13 @@
 
     <link rel="canonical" href="<%= config.url + config.root + (page.path || '').replace('index.html', '') %>">
 
+    <!-- Open Graph -->
+    <% var options = {
+      title: page["title"] ? page["title"] + " | " + config["SEOTitle"] : config["SEOTitle"],
+      image: page["header-img"] ? config["cdn-url"] + page["header-img"] + config["clip-content"] : config["post-default-img"]
+    }; %>
+    <%- open_graph(options) %>
+
     <!-- Bootstrap Core CSS -->
     <%- css('css/bootstrap.min.css') %>
 
