@@ -26,13 +26,15 @@ layout: layout
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="col-md-8 col-md-offset-1 col-xs-12">
             <!-- Tag Clouds -->
             <div id='tag_cloud' class="tags">
-              <% site.tags.map(function(tag){
-                if (tag.length > 0) { %>
-                  <a href="#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a>
-                <% }}); %>
+              <% site.tags.map((tag) => {
+                  if (tag.length > 0) { %>
+                    <a href="#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>">
+                      <%= tag.name %> (<%= tag.length %>)
+                    </a>
+                  <% }}); %>
             </div>
 
             <!-- Tag Lists -->
@@ -62,5 +64,6 @@ layout: layout
                 </div>
               <% }}); %>
         </div>
+      <%- partial('_partial/sidebar') %>
     </div>
 </div>

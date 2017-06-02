@@ -1,4 +1,9 @@
 <!-- Footer -->
+<style>
+#busuanzi_container_site_pv {
+  display: inline;
+}
+</style>
 <footer>
     <div class="container">
         <div class="row">
@@ -84,9 +89,14 @@
                 <p class="copyright text-muted">
                     Copyright &copy; <%= config.title %> <%= new Date().getFullYear() %>
                     <br>
-                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">
+                      本站總訪問量: <span id="busuanzi_value_site_pv">-</span> 次
+                    </span>
+                    <span id="busuanzi_container_site_uv" style="font-size: 12px;">
+                      本站訪客數: <span id="busuanzi_value_site_uv">-</span> 次
+                    </span>
                     <br>
-                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>, Modified by <a href="https://calpa.me">Calpa Liu </a>
                 </p>
 
             </div>
