@@ -38,4 +38,10 @@
 
     <!-- Pygments Github CSS -->
     <%- css('css/syntax') %>
+
+    <!-- pace -->
+    <% if(config.pace) { %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+    <%- css('css/pace-theme-minimal.min.css') %>
+    <% } %>
 </head>
