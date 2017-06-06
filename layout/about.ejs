@@ -31,20 +31,7 @@ layout: layout
     <% } %>
 </style>
 
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <div class="post-heading">
-                    <h1><%= page.header_title %></h1>
-                    <% if(page.subtitle) { %>
-                    <h2 class="subheading"><%= page.subtitle %></h2>
-                    <% } %>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<%- partial('_partial/header') %>
 
 <!-- Post Content -->
 <article>
