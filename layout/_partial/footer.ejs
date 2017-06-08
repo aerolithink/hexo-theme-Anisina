@@ -105,13 +105,13 @@
 </footer>
 
 <!-- jQuery -->
-<%- js('js/jquery.min.js') %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <!-- Calpa's Magic -->
 <%- js('js/magic.js') %>
 
-<!-- Bootstrap Core JavaScript -->
-<%- js('js/bootstrap.min.js') %>
+<!-- Bootstrap v3.3.7 Core JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <%- js('js/blog.js') %>
@@ -174,8 +174,8 @@
 </script>
 <% } %>
 
-<!-- Baidu Tongji -->
 <% if (config.ba_track_id) { %>
+<!-- Baidu Tongji -->
 <script>
     var _baId = '<%= config.ba_track_id %>';
     // Originial
@@ -202,7 +202,9 @@
 <% } %>
 
 <!-- busuanzi -->
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<% if (is_home() === config.add_this.home) { %>
 <!-- AddThis -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59311b889457f301"></script>
+<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59311b889457f301"></script>
+<% } %>
