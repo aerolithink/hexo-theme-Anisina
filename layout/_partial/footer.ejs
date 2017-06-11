@@ -8,84 +8,6 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <br>
-                <ul class="list-inline text-center">
-                <% if (config.RSS) { %>
-                    <li>
-                        <a href="<%= config.root + 'feed.xml' %>">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                <% } %>
-                <% if (config.twitter_username) { %>
-                    <li>
-                        <a target="_blank" href="https://twitter.com/<%= config.twitter_username %>">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                <% } %>
-                <% if (config.zhihu_username) { %>
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/<%= config.zhihu_username %>">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
-                <% } %>
-
-                <% if (config.weibo_username) { %>
-                    <li>
-                        <a target="_blank" href="http://weibo.com/<%= config.weibo_username %>">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                <% } %>
-
-                <% if (config.facebook_username) { %>
-                    <li>
-                        <a target="_blank" href="https://www.facebook.com/<%= config.facebook_username %>">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                <% } %>
-
-                <% if (config.github_username) { %>
-                    <li>
-                        <a target="_blank"  href="https://github.com/<%= config.github_username %>">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                <% } %>
-
-                <% if (config.linkedin_username) { %>
-                    <li>
-                        <a target="_blank"  href="https://www.linkedin.com/in/<%= config.linkedin_username %>">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                <% } %>
-
-                </ul>
                 <p class="copyright text-muted">
                   <span id="busuanzi_container_site_pv" style="font-size: 12px;">
                     本站總訪問量: <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> 次
@@ -100,8 +22,9 @@
                   <% } %>
                   Copyright &copy; <%= config.title %> <%= new Date().getFullYear() %><br />
                   Theme by <a href="https://haojen.github.io/">Haojen Ma</a>, Modified by <a href="https://calpa.me">Calpa Liu </a><br />
-                  Icon by <i class="fa fa-font-awesome" aria-hidden="true"></i><a href="http://fontawesome.io/">Font Awesome</a>, Powered by <a href="http://getbootstrap.com/">Bootstrap</a>
+                  Icon by <i class="fa fa-font-awesome" aria-hidden="true"></i> <a href="http://fontawesome.io/">Font Awesome</a>, Powered by <a href="http://getbootstrap.com/">Bootstrap</a>
                 </p>
+                <%- partial('./social') %>
                 <hr />
             </div>
         </div>
