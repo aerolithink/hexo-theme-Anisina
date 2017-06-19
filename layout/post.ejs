@@ -18,15 +18,26 @@ layout: layout
 <style>
     <% if (page["cdn"] === 'header-off'){%>
     header.intro-header {
-        background-image: url('<%= page["header-img"] || config["post-default-img"]%>');
+      background-image: url('<%= page["header-img"] || config["post-default-img"]%>');
     }
 
     <%} else {%>
     header.intro-header {
-        background-image: url('<%- page["header-img"]?config["cdn-url"]+page["header-img"]+config["clip-content"] : config["post-default-img"]%>')
+      background-image: url('<%- page["header-img"]?config["cdn-url"]+page["header-img"]+config["clip-content"] : config["post-default-img"]%>');
     }
-
     <% } %>
+</style>
+
+<style>
+header.intro-header {
+  <% if (page["header-bg-color"]) { %>
+    background-color: #<%= page["header-bg-color"] %>;
+  <% } %>
+
+  <% if (page["header-size"]) { %>
+    background-size: <%= page["header-size"] %>;
+  <% } %>
+}
 </style>
 
 <header class="intro-header">
@@ -41,6 +52,11 @@ layout: layout
                     <span>
                       作者 <%- page.author || config.author %>
                     </span>
+                    <% if (page.translator) { %>
+                      <span>
+                        譯者 <%- page.translator %>
+                      </span>
+                    <% } %>
                     <span>
                       日期 <%= page.date.format(config.date_format) %>
                     </span>
