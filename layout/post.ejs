@@ -149,6 +149,12 @@ header.intro-header {
                 <!-- disqus 评论框 end -->
                 <% } %>
 
+                <% if (config['gitalk']) { %>
+                <!-- Gitalk 評論區 -->
+                <div class="comment">
+                  <div id="gitalk-container"></div>
+                </div>
+                <% } %>
             </div>
 
             <div class="hidden-xs col-md-2 col-sm-3 toc-col">
@@ -237,4 +243,8 @@ header.intro-header {
       }
     }
 </style>
+<% } %>
+
+<% if(config['gitalk']) { %>
+  <%- partial('_partial/Gitalk') %>
 <% } %>
