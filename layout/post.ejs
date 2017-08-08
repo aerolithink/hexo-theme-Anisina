@@ -4,7 +4,6 @@ layout: layout
 
 <!--only post-->
 <% if (page['wechat-share']) { %>
-
   <img class="wechat-title-img"
        src="<%- config['cdn-url'] %> <%= page['wechat-share'] || page['header-img'] %> <%- config['cdn-url'] ? config['clip-content'] : '' %>">
   <% } else{ %>
@@ -30,12 +29,35 @@ layout: layout
 
 <style>
 header.intro-header {
+  <% if (page["magic"] === false) { %>
+    margin-top: 60px;
+  <% } %>
   <% if (page["header-bg-color"]) { %>
     background-color: #<%= page["header-bg-color"] %>;
   <% } %>
 
   <% if (page["header-size"]) { %>
     background-size: <%= page["header-size"] %>;
+  <% } %>
+}
+
+.post-heading {
+  <% if (page["magic"] === false) { %>
+    color: black;
+    text-shadow: none;
+  <% } else { %>
+    color: #fff;
+    text-shadow: 0 0 40px rgba(0, 0, 0, 1);
+  <% } %>
+}
+
+.post-tags >.tag{
+  <% if (page["magic"] === false) { %>
+    color: black;
+    border: 1px solid black;
+  <% } else { %>
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
   <% } %>
 }
 </style>
@@ -65,7 +87,7 @@ header.intro-header {
                       <span class="post-count">共<%= wordcount(page.content) %>字</span>
                     <% } %>
 
-                    <div class="tags text-center">
+                    <div class="tags text-center post-tags">
                         <% page.tags.forEach(function(tag){ %>
                         <a class="tag" href="<%= config.root %>Tags/#<%= tag.name %>"
                            title="<%= tag.name %>"><%= tag.name %></a>
@@ -78,7 +100,7 @@ header.intro-header {
 </header>
 
 <!-- Post Content -->
-<article>
+<article data-enableMagic="<%- page['magic'] === false ? false : true %>">
     <div class="container">
         <div class="row">
             <!-- Post Container -->

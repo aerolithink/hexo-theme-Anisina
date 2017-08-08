@@ -14,12 +14,10 @@ layout: layout
         text-align: center;
         background-repeat: no-repeat;
         border-radius: 3px;
-        background-size: cover;
         padding: 0;
         height: 300px;
         display: table;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.16);
     }
 
     /*去掉诗歌的背景图片*/
@@ -31,9 +29,7 @@ layout: layout
     .custom-haojen-container .post-preview:nth-child(1) h2,
     .custom-haojen-container .post-preview:nth-child(1) .post-meta,
     .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
-        text-shadow: 0 0 40px rgba(0, 0, 0, 1);
         letter-spacing: 1px;
-        color: #fff;
         margin-top: 0;
     }
 
@@ -54,11 +50,6 @@ layout: layout
     /*不显示摘要*/
     .custom-haojen-container .post-preview:nth-child(1) .post-content-preview {
         display: none
-    }
-
-    /*只第一个显示背景图片*/
-    .custom-haojen-container .post-preview:not(:nth-child(1)) {
-        background-image: none !important;
     }
 
     /*第一个分界线去掉*/
