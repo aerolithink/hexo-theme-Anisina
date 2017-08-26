@@ -47,4 +47,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
     <%- css('css/pace-theme-minimal.min.css') %>
     <% } %>
+
+    <% if (config.algolia) { %>
+      <!-- instantsearch.js -->
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
+    <% } %>
 </head>

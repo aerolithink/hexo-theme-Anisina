@@ -1,0 +1,45 @@
+.post-container {
+  a {
+    color: #337ab7;
+  }
+
+  h5 + p, h6 + p {
+    margin-top: 5px;
+  }
+  ul {
+    margin-bottom: 20px;
+  }
+  ol {
+    margin-bottom: 20px;
+    ol, ul {
+      margin-bottom: 5px;
+    }
+  }
+  ul {
+    ol, ul {
+      margin-bottom: 5px;
+    }
+  }
+  li {
+    p {
+      margin: 0;
+      margin-bottom: 5px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 2;
+      margin-top: 20px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    ul, ol {
+      padding-left: 30px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    ul, ol {
+      padding-left: 20px;
+    }
+  }
+}

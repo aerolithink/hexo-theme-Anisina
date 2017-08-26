@@ -8,10 +8,12 @@
             <img src="<%= config['sidebar-avatar'] %>" alt="avatar"/>
             <% } %>
             <h5><%= config.author %></h5>
-            <% if(config['sidebar-about-description']) { %>
-            <p><%= config['sidebar-about-description'] %></p>
-            <% } %>
+            <!-- 關於我的一言兩句 -->
+            <%- partial('./aboutDescription') %>
             <hr>
+
+            <!-- 跳轉到搜尋 -->
+            <input href="/search" placeholder="搜尋博客內容" onblur="navigateToSearch()" onkeypress="handleEnter(event)" id="customSearch"/>
             <!-- SNS Link 社交 -->
             <ul class="list-inline">
                 <% if (config.RSS) { %>
@@ -154,5 +156,17 @@
           <% }) %>
       </ul>
     <% } %>
-
 </div>
+
+<script>
+function navigateToSearch() {
+  var q = document.getElementById("customSearch").value;
+  location.href="https://calpa.me/search/?q=" + q;
+}
+
+function handleEnter(e) {
+  if (e.keyCode == 13) {
+    navigateToSearch();
+  }
+}
+</script>

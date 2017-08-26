@@ -118,7 +118,9 @@ layout: layout
                         <!--移动端头部显示-->
                         <img src="<%= config['sidebar-avatar'] %>" alt="avatar"/>
                         <h4><%= config.author %></h4>
-                        <p><%= config['sidebar-about-description'] %></p>
+
+                        <!-- 關於我的一言兩句 -->
+                        <%- partial('_partial/aboutDescription') %>
                     </div>
                 </div>
             </div>

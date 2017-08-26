@@ -1,0 +1,9 @@
+<% if(config['sidebar-about-description']) { %>
+  <% if (config['sidebar-about-description']['poetry']) {
+    for (var sentence of config['sidebar-about-description']['poetry']) { %>
+      <p><%= sentence %></p>
+    <% }
+    } else { %>
+    <p><%= config['sidebar-about-description'] %></p>
+  <% } %>
+<% } %>
