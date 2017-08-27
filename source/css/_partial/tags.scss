@@ -167,8 +167,8 @@
   }
 
   .tag:hover {
-    color: #0085a1;
-    background-color: #0085a1;
+    color: $blue;
+    background-color: $blue;
     text-decoration: none;
   }
 }
@@ -187,6 +187,13 @@
   }
 }
 
+// Posts
 .post-tags {
   justify-content: center;
+  .tag {
+    background-color: transparent;
+    &:hover {
+      color: $blue;
+    }
+  }
 }

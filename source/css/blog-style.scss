@@ -7,6 +7,8 @@
 // Import Partials
 @import "./_partial/tags.scss";
 @import './_partial/pager.scss';
+@import './_partial/toc.scss';
+
 
 // Common
 @import './common.scss';
@@ -110,45 +112,6 @@
 */
 .sidebar-container .short-about {
   text-align: center;
-}
-
-.container {
-  .toc-col {
-    padding: 0;
-  }
-  .toc-wrap {
-    margin-top: 30px;
-    list-style: none;
-    color: darkgrey;
-    border-left: #eee 3px solid;
-    padding-left: 12px;
-    > ol {
-      list-style: none;
-      padding-left: 0;
-    }
-    li > ol {
-      padding-left: 8px;
-      list-style: none;
-    }
-    .toc-level-2 > a {
-      color: #0085a1;
-      font-size: .9em;
-    }
-    li ol a {
-      color: #555;
-      font-size: .85em;
-      padding-left: 5px;
-    }
-    &.toc-fixed {
-      position: fixed;
-      top: 85px;
-      margin-top: 0;
-      max-height: 81%;
-      overflow: auto;
-      z-index: 1;
-      background-color: #fff;
-    }
-  }
 }
 
 .post-preview > a > .post-title {

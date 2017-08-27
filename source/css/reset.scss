@@ -7,12 +7,25 @@
   margin: -60px 0 0;
 }
 
+/** Anchor.js **/
+
+/* place left on bigger screen */
+@media (min-width: 800px) {
+  .anchorjs-link:hover {
+    color: $blue;
+  }
+  *:hover > .anchorjs-link {
+    transition: color .25s linear;
+  }
+}
+
 .list-inline {
   margin: 0;
 }
 
+// Bootstrap hr 20px -> 10px
 hr {
-  margin: 0;
+  margin: 10px;
 }
 
 body {

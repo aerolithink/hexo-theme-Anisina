@@ -93,7 +93,12 @@
     height: 56px;
     line-height: 25px;
     &:hover {
-      color: rgba(255, 255, 255, 0.8);
+      color: $blue;
+    }
+
+    @media (min-width: 768px) {
+      padding: 20px;
+      line-height: 17px;
     }
   }
   .nav li a {
@@ -106,6 +111,17 @@
     &:active {
       background: rgba(0, 0, 0, 0.12);
     }
+
+    @media (min-width: 768px) {
+      color: white;
+      padding: 20px;
+      &:hover, &:focus {
+        color: #FC7097;
+      }
+      &:active {
+        background: none;
+      }
+    }
   }
 }
 
@@ -115,24 +131,6 @@
     border-bottom: 1px solid transparent;
     body {
       font-size: 20px;
-    }
-    .navbar-brand {
-      color: white;
-      padding: 20px;
-      line-height: 17px;
-      &:hover, &:focus {
-        color: rgba(255, 255, 255, 0.8);
-      }
-    }
-    .nav li a {
-      color: white;
-      padding: 20px;
-      &:hover, &:focus {
-        color: #FC7097;
-      }
-      &:active {
-        background: none;
-      }
     }
   }
 }

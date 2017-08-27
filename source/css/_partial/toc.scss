@@ -1,0 +1,46 @@
+.toc-wrap {
+  margin-top: 30px;
+  list-style: none;
+  color: darkgrey;
+  border-left: #eee 3px solid;
+  padding-left: 12px;
+  .toc {
+    list-style: none;
+    padding-left: 0;
+  }
+  li > ol {
+    padding-left: 8px;
+    list-style: none;
+  }
+  .toc-level-2 {
+    .toc-link {
+      color: $blue;
+      &:hover {
+        color: lighten($blue, 10%);
+      }
+      font-size: .9em;
+    }
+
+    .toc-level-3 {
+      .toc-link {
+        color: $black;
+        &:hover {
+          color: lighten($black, 10%);
+        }
+
+        font-size: .85em;
+        padding-left: 5px;
+      }
+    }
+  }
+
+  &.toc-fixed {
+    position: fixed;
+    top: 85px;
+    margin-top: 0;
+    max-height: 81%;
+    overflow: auto;
+    z-index: 1;
+    background-color: #fff;
+  }
+}

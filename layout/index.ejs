@@ -8,6 +8,7 @@ layout: page
 <style>
 .calpaFirstImage {
   background-position-y: <%- post["background-position-y"] || 0 %>;
+  background-position-x: <%- post["background-position-x"] || 0 %>;
   background-size: <%- post["header-size"] || 'cover' %>;
   background-color: <%- '#' + post["header-bg-color"] || rgba(0, 0, 0, 0.16) %>;
   <% if (index === 0) {
