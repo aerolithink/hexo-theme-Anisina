@@ -10,7 +10,9 @@ layout: page
   background-position-y: <%- post["background-position-y"] || 0 %>;
   background-position-x: <%- post["background-position-x"] || 0 %>;
   background-size: <%- post["header-size"] || 'cover' %>;
-  background-color: <%- '#' + post["header-bg-color"] || rgba(0, 0, 0, 0.16) %>;
+  <% if (post["header-bg-color"]) { %>
+    background-color: <%- '#' + post["header-bg-color"] || rgba(0, 0, 0, 0.16) %>;
+  <% } %>
   <% if (index === 0) {
     // show the first image only
     if (post["cdn"] === 'header-off') { %>
@@ -23,7 +25,7 @@ layout: page
 </style>
 <% } %>
 <div class="post-preview<%- post.layout === ' poetry ' ? ' post-preview-poetry ' : '' %><%- index === 0 ? ' calpaFirstImage': '' %>">
-    <a href="<%- config.root %><%- post.path %>">
+    <a href="<%- config.root %><%- post.path %>" class="<%-post['theme'] === 'white' ? 'white': 'black'%>">
         <h2 class="post-title">
             <%- post.title || "Name poi?" %>
         </h2>

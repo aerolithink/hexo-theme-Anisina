@@ -193,7 +193,8 @@
   .tag {
     background-color: transparent;
     &:hover {
-      color: $blue;
+      color: $white;
+      background-color: $blue;
     }
   }
 }

@@ -51,10 +51,29 @@ article .post-container h2 {
   font-weight: 600;
 }
 
+.calpaFirstImage {
+  // 黑色圖片背景
+  .black {
+    color: $white;
+    &:hover, &:focus {
+      color: $anotherBlue;
+    }
+  }
+
+  // 白色圖片背景
+  .white {
+    color: $black;
+    &:hover, &:focus {
+      color: $anotherBlue;
+    }
+  }
+}
+
 a {
-  color: #404040;
+  color: $anotherBlue;
+
   &:hover, &:focus {
-    color: #0085a1;
+    color: $blue;
     text-decoration: none;
   }
   img {
@@ -68,7 +87,7 @@ blockquote {
   color: #808080;
   font-size: 0.95em;
   margin: 20px 0 20px;
-  border-color: #ff7e79;
+  border-color: $pink;
   p {
     margin: 0;
   }

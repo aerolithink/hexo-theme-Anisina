@@ -5,13 +5,13 @@ layout: layout
 <!--only post-->
 <% if (page['wechat-share']) { %>
   <img class="wechat-title-img"
-       src="<%- config['cdn-url'] %> <%= page['wechat-share'] || page['header-img'] %> <%- config['cdn-url'] ? config['clip-content'] : '' %>">
+       data-src="<%- config['cdn-url'] %> <%= page['wechat-share'] || page['header-img'] %> <%- config['cdn-url'] ? config['clip-content'] : '' %>">
   <% } else{ %>
   <% if (page["cdn"] === 'header-off'){ %>
-    <img class="wechat-title-img" src="<%= page["header-img"] || config["post-default-img"] %>">
+    <img class="wechat-title-img" data-src="<%= page["header-img"] || config["post-default-img"] %>">
   <% } else { %>
     <img class="wechat-title-img"
-         src="<%- page['header-img'] ? config['cdn-url'] + page["header-img"] : config["post-default-img"] %>">
+         data-src="<%- page['header-img'] ? config['cdn-url'] + page["header-img"] : config["post-default-img"] %>">
   <% } %>
 <% } %>
 <style>
@@ -60,6 +60,13 @@ header.intro-header {
     border-color: rgba(255, 255, 255, 0.4);
   <% } %>
 }
+
+<% if (page["juejin"]) { %>
+.tags .juejin {
+  background: url('https://badge.juejin.im/entry/<%= page["juejin"] %>/likes.svg?style=flat') no-repeat;
+  margin-top: 10px;
+}
+<% } %>
 </style>
 
 <header class="intro-header">
@@ -88,10 +95,13 @@ header.intro-header {
                     <% } %>
 
                     <div class="tags text-center post-tags">
-                        <% page.tags.forEach(function(tag){ %>
-                        <a class="tag" href="<%= config.root %>Tags/#<%= tag.name %>"
-                           title="<%= tag.name %>"><%= tag.name %></a>
-                        <% }) %>
+                      <% page.tags.forEach(function(tag){ %>
+                      <a class="tag" href="<%= config.root %>Tags/#<%= tag.name %>"
+                         title="<%= tag.name %>"><%= tag.name %></a>
+                      <% }) %>
+                      <% if (page.juejin) { %>
+                        <a href="https://juejin.im/entry/<%= page.juejin %>/detail" class="juejin"></a>
+                      <% } %>
                     </div>
                 </div>
             </div>

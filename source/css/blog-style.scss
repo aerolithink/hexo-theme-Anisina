@@ -2,19 +2,12 @@
 @import './_partial/sidebar.scss';
 @import './_partial/navbar.scss';
 @import './_partial/header.scss';
-@import './_partial/footer.scss';
-
-// Import Partials
+@import './_partial/footer.scss'; // Import Partials
 @import "./_partial/tags.scss";
 @import './_partial/pager.scss';
-@import './_partial/toc.scss';
-
-
-// Common
-@import './common.scss';
-@import './reset.scss';
-
-// Search
+@import './_partial/toc.scss'; // Common
+@import './_partial/common.scss';
+@import './_partial/reset.scss'; // Search
 @import './_partial/search.scss';
 
 .btn {
@@ -34,7 +27,8 @@
   }
 
   &-default {
-    &:hover, &:focus {
+    &:focus,
+    &:hover {
       background-color: #0085a1;
       border: 1px solid #0085a1;
       color: white;
@@ -45,26 +39,29 @@
 .t:first-child {
   margin-top: 0;
 }
-
 /* Hux make all img responsible in post-container */
-
 .post-container img {
   display: block;
-  max-width: 100%;
+  max-width: 450px;
+  width: 100%;
   height: auto;
-  margin: 1.5em auto 1.6em auto;
+  margin: 1.5em auto 1.6em;
 }
 
 .comment {
   margin-top: 20px;
+
   #ds-thread #ds-reset {
-    a.ds-like-thread-button, li.ds-tab a.ds-current {
+    a.ds-like-thread-button,
+    li.ds-tab a.ds-current {
       border: 1px solid #ddd;
       background: white;
       box-shadow: none;
       text-shadow: none;
     }
-    .ds-textarea-wrapper, .ds-gradient-bg {
+
+    .ds-gradient-bg,
+    .ds-textarea-wrapper {
       background: none;
     }
   }
@@ -75,7 +72,6 @@
 }
 
 .page-fullscreen {
-
   #tag-heading {
     position: fixed;
     left: 0;
@@ -88,6 +84,7 @@
     justify-content: center;
     flex-direction: column;
   }
+
   footer {
     position: absolute;
     width: 100%;
@@ -95,10 +92,13 @@
     padding-bottom: 20px;
     opacity: 0.6;
     color: #fff;
+
     .copyright {
       color: #fff;
+
       a {
         color: #fff;
+
         &:hover {
           color: #ddd;
         }
@@ -106,7 +106,6 @@
     }
   }
 }
-
 /*
   @Haojen
 */
@@ -114,12 +113,22 @@
   text-align: center;
 }
 
-.post-preview > a > .post-title {
-  margin-bottom: 0;
-  font-weight: 200;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
-  @media screen and (max-width: 500px) {
-    font-weight: normal;
+.post-preview {
+  a {
+    color: $black;
+
+    &:hover {
+      color: $anotherBlue;
+    }
+
+    .post-title {
+      margin-bottom: 0;
+      font-weight: 200;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+      @media screen and (max-width: 500px) {
+        font-weight: normal;
+      }
+    }
   }
 }
 
@@ -128,11 +137,12 @@
     h4 {
       color: $white;
     }
+
     img {
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      opacity: .9;
+      opacity: 0.9;
     }
   }
 
@@ -142,6 +152,7 @@
     letter-spacing: 1px;
     font-weight: 400;
   }
+
   p {
     margin: 0;
     color: #eee;
@@ -161,9 +172,7 @@
   height: 0;
   width: 0;
 }
-
 /* about-me */
-
 .about-me {
   margin-top: 35px;
 }
