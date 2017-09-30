@@ -1,51 +1,35 @@
 ---
 layout: page
 ---
-<!-- Main Content -->
-
-<% page.posts.map((post, index) => { %>
-<% if (index === 0) { %>
-<style>
-.calpaFirstImage {
-  background-position-y: <%- post["background-position-y"] || 0 %>;
-  background-position-x: <%- post["background-position-x"] || 0 %>;
-  background-size: <%- post["header-size"] || 'cover' %>;
-  <% if (post["header-bg-color"]) { %>
-    background-color: <%- '#' + post["header-bg-color"] || rgba(0, 0, 0, 0.16) %>;
-  <% } %>
-  <% if (index === 0) {
-    // show the first image only
-    if (post["cdn"] === 'header-off') { %>
-       background-image: url('<%- post["header-img"] || config["post-default-img"] %>');
-    <% } else { %>
-       background-image: url('<%- post["header-img"]? config["cdn-url"] + post["header-img"] : config["post-default-img-mobile"] %>');
-    <% } %>
-  <% } %>
+<script>
+function toggleBookMark(id) {
+  $(id).removeClass('fa-bookmark-o').addClass('fa-bookmark');
 }
-</style>
-<% } %>
-<div class="post-preview<%- post.layout === ' poetry ' ? ' post-preview-poetry ' : '' %><%- index === 0 ? ' calpaFirstImage': '' %>">
-    <a href="<%- config.root %><%- post.path %>" class="<%-post['theme'] === 'white' ? 'white': 'black'%>">
-        <h2 class="post-title">
-            <%- post.title || "Name poi?" %>
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> <%= post.date.format(config.date_format) %>
-        </p>
-        <% if (post.subtitle && post.subtitle.length) { %>
-        <h3 class="post-subtitle">
-            <%- post.subtitle %>
-        </h3>
-        <% } %>
-        <% if (index >= 1) { %>
-        <div class="post-content-preview">
-            <p>
-                <%- truncate(strip_html(post.content), {length: 150, omission: '..'}) %>
-            </p>
+</script>
+
+<!-- Main Content -->
+<% page.posts.map((post, index) => { %>
+  <a href="<%- config.root %><%- post.path %>">
+  <div class="card card<%- index %>">
+    <div class="wrapper <%-post['theme'] === 'white' ? 'white': 'black'%>">
+      <div class="card-header" style="background: #<%- post['header-bg-color']? post['header-bg-color']: 'fff' %> url(<%- post['header-img']? config['cdn-url'] + post['header-img'] : config['post-default-img-mobile'] %>) center/contain no-repeat"></div>
+      <div class="data">
+        <div class="content">
+          <div class="stats"><span class="date"><%= post.date.format(config.date_format) %></span></div>
+          <h1 class="title"><a href="<%- config.root %><%- post.path %>"><%- post.title %></a></h1>
+          <p class="text"><%- truncate(strip_html(post.content), {length: 140, omission: '...'}) %></p>
+          <label for="show-menu<%- index %>" class="menu-button"><span></span></label>
         </div>
-        <% } %>
-    </a>
-</div>
+        <input type="checkbox" id="show-menu<%- index %>" />
+        <ul class="menu-content">
+          <li>
+            <a href="#" class="fa fa-plane"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </a>
 <% }); %>
 
 
