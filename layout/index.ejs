@@ -11,20 +11,17 @@ function toggleBookMark(id) {
 <% page.posts.map((post, index) => { %>
   <div class="card card<%- index %>" href="<%- config.root %><%- post.path %>">
     <div class="wrapper <%-post['theme'] === 'white' ? 'white': 'black'%>">
-      <div class="card-header" style="background: #<%- post['header-bg-color']? post['header-bg-color']: 'fff' %> url(<%- post['header-img']? config['cdn-url'] + post['header-img'] : config['post-default-img-mobile'] %>) center/contain no-repeat"></div>
-      <div class="data">
+      <div class="card-header"
+           style="background: #<%- post['header-bg-color']? post['header-bg-color']: 'fff' %> url(<%- post['header-img']? config['cdn-url'] + post['header-img'] : config['post-default-img-mobile'] %>) center/contain no-repeat"
+           onclick="location.href='<%- config.root %><%- post.path %>'"
+      >
+      </div>
+      <div class="data" onclick="location.href='<%- config.root %><%- post.path %>'">
         <div class="content">
           <div class="stats"><a href="<%- config.root %><%- post.path %>"><span class="date"><%= post.date.format(config.date_format) %></span></a></div>
           <h1 class="title"><a href="<%- config.root %><%- post.path %>"><%- post.title %></a></h1>
           <p class="text"><a href="<%- config.root %><%- post.path %>"><%- truncate(strip_html(post.content), {length: 140, omission: '...'}) %></a></p>
-          <label for="show-menu<%- index %>" class="menu-button"><span></span></label>
         </div>
-        <input type="checkbox" id="show-menu<%- index %>" />
-        <ul class="menu-content">
-          <li>
-            <a href="<%- config.root %><%- post.path %>" class="fa fa-plane"></a>
-          </li>
-        </ul>
       </div>
     </div>
   </div>

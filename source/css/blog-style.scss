@@ -40,6 +40,7 @@ body {
 
   .card-header {
     height: 15em;
+    cursor: pointer;
   }
 
   .menu-content {
@@ -97,6 +98,7 @@ body {
     width: 100%;
     transform: translateY(calc(70px + 1em));
     transition: transform 0.3s;
+    cursor: pointer;
 
     .content {
       padding: 1em;
