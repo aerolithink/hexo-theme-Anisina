@@ -6,23 +6,21 @@
   /* negative fixed header height */
   margin: -60px 0 0;
 }
-
 /** Anchor.js **/
-
 /* place left on bigger screen */
 @media (min-width: 800px) {
   .anchorjs-link:hover {
     color: $blue;
   }
+
   *:hover > .anchorjs-link {
-    transition: color .25s linear;
+    transition: color 0.25s linear;
   }
 }
 
 .list-inline {
   margin: 0;
 }
-
 // Bootstrap hr 20px -> 10px
 hr {
   margin: 10px;
@@ -33,13 +31,12 @@ body {
   font-size: 16px;
   color: #404040;
   overflow-x: hidden;
-  font-family: -apple-system,  "PingFang SC","Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-family: -apple-system, "PingFang SC","Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
 
 p {
   margin: 0 0 20px;
 }
-
 @for $i from 1 through 6 {
   h#{$i} {
     font-size: 26 - $i * 2px;
@@ -55,15 +52,18 @@ article .post-container h2 {
   // 黑色圖片背景
   .black {
     color: $white;
-    &:hover, &:focus {
+
+    &:focus,
+    &:hover {
       color: $anotherBlue;
     }
   }
-
   // 白色圖片背景
   .white {
     color: $black;
-    &:hover, &:focus {
+
+    &:focus,
+    &:hover {
       color: $anotherBlue;
     }
   }
@@ -72,12 +72,15 @@ article .post-container h2 {
 a {
   color: $anotherBlue;
 
-  &:hover, &:focus {
+  &:focus,
+  &:hover {
     color: $blue;
     text-decoration: none;
   }
+
   img {
-    &:hover, &:focus {
+    &:focus,
+    &:hover {
       cursor: zoom-in;
     }
   }
@@ -86,8 +89,9 @@ a {
 blockquote {
   color: #808080;
   font-size: 0.95em;
-  margin: 20px 0 20px;
+  margin: 20px 0;
   border-color: $pink;
+
   p {
     margin: 0;
   }
@@ -106,7 +110,6 @@ br + small.img-hint {
 img.shadow {
   box-shadow: rgba(0, 0, 0, 0.25) 0 2px 5px 0;
 }
-
 @media screen and (max-width: 768px) {
   select {
     -webkit-appearance: none;
@@ -119,7 +122,8 @@ img.shadow {
 }
 
 .table {
-  th, td {
+  td,
+  th {
     border: 1px solid #eee !important;
   }
 }
@@ -130,7 +134,8 @@ hr.small {
   border: 4px white;
 }
 
-pre, .table-responsive {
+.table-responsive,
+pre {
   -webkit-overflow-scrolling: touch;
 }
 
@@ -143,11 +148,17 @@ pre code {
 
 article {
   .post-container {
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       margin-top: -90px;
       padding: 100px 0 0;
     }
   }
+
   blockquote footer {
     padding: 5px 20px 0;
   }
@@ -184,7 +195,9 @@ a:focus {
   margin-bottom: 0;
   padding-bottom: 0.5em;
   border-bottom: 1px solid #eeeeee;
-  input, textarea {
+
+  input,
+  textarea {
     z-index: 1;
     position: relative;
     padding-right: 0;
@@ -196,6 +209,7 @@ a:focus {
     box-shadow: none !important;
     resize: none;
   }
+
   label {
     display: block;
     z-index: 0;
@@ -208,13 +222,13 @@ a:focus {
     opacity: 0;
     transition: top 0.3s ease, opacity 0.3s ease;
   }
+
   &:not(:first-child) {
     padding-left: 14px;
     border-left: 1px solid #eeeeee;
   }
 
   &-value label {
-    @debug 'label';
     top: 0;
     opacity: 1;
   }
@@ -223,7 +237,6 @@ a:focus {
     color: #0085a1;
   }
 }
-
 
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
