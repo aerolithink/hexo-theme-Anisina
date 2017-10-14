@@ -50,4 +50,21 @@
 
     <!-- lazy loading -->
     <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
+    <!-- OneSignal -->
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(["init", {
+            appId: "272cd882-09dc-46af-bdee-842e3caf63c9",
+            autoRegister: false,
+            httpPermissionRequest: {
+              enable: true,
+            },
+            notifyButton: {
+                enable: true
+            }
+        }]);
+    </script>
 </head>
